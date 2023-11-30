@@ -29,28 +29,16 @@ public class JDBCconn
 			int id;
 			while (rs.next())
 			{
-				System.out.print("ID: "  + rs.getInt(1) + "Name: " + rs.getString(2)  );
+				System.out.print ("Name: " + rs.getString(2)  + "ID: "  + rs.getInt(1)  );
 			}
-			
+			rs.close();
+			stat.close();
+			conn.close();
 		}
 		catch (SQLException ex)
 		{
-			System.out.println("Database not connected");
+			System.out.println("Database not connected!");
 		}
-		finally 
-		{
-			try {
-				if ( conn != null)
-				{
-					rs.close();
-					stat.close();
-					conn.close();
-				}
-			}
-			catch (SQLException ex)
-			{
-				System.out.println("Database not connected");
-			}
-		}
+		
 	}
 }
